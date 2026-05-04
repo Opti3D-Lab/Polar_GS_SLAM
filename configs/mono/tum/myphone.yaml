@@ -1,0 +1,18 @@
+inherit_from: "configs/mono/tum/base_config.yaml"
+
+Dataset:
+  dataset_path: "/mnt/data/wht/datasets/Phone/meetingroom2/"
+  Calibration:
+    fx: 535.4
+    fy: 539.2
+    cx: 247.6
+    cy: 320.1
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    width: 480
+    height: 640
+    depth_scale: 5000.0
+    distorted: False

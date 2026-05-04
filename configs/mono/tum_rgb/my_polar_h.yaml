@@ -1,0 +1,22 @@
+# 启动命令：
+# CUDA_VISIBLE_DEVICES=1 python slam.py --config configs/mono/tum_rgb/my_polar_h.yaml
+inherit_from: "configs/mono/tum_rgb/base_config.yaml"
+# 偏振相机8mm镜头内参
+Dataset:
+  dataset_path: "/root/datasets/my/polar/object/headset1_320/"
+  Calibration:
+    fx: 624.29
+    fy: 624.72
+    cx: 308.60
+    cy: 258.78
+    k1: -0.1030
+    k2: 0.1179
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    distorted: False
+    width: 612
+    height: 512
+use_normal_loss: True
+#    depth_scale: 2000.0  # 单目下需要去除
+#    depth_scale: 2000.0  # 单目下需要去除

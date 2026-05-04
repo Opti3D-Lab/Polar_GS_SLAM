@@ -1,0 +1,20 @@
+# 启动命令：
+# CUDA_VISIBLE_DEVICES=2 python slam.py --config configs/rgbd/tum/my_rgbd2.yaml
+inherit_from: "configs/rgbd/tum/base_config.yaml"
+# 深度相机的内参
+Dataset:
+  dataset_path: "/root/datasets/my/rgbd/chair2/"
+  Calibration:
+    fx: 335.4
+    fy: 339.2
+    cx: 480.6
+    cy: 370.1
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    distorted: False
+    width: 960
+    height: 720
+    depth_scale: 1000.0

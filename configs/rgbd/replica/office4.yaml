@@ -1,0 +1,4 @@
+inherit_from: "configs/rgbd/replica/base_config.yaml"
+Dataset:
+  dataset_path: "/root/datasets/Download/Replica/office4/"
+  single_thread: False

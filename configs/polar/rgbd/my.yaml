@@ -1,0 +1,30 @@
+# 启动命令：
+# CUDA_VISIBLE_DEVICES=2 python slam.py --config configs/polar/rgbd/my.yaml
+inherit_from: "configs/polar/rgbd/base_config.yaml"
+
+Dataset:
+  dataset_path: "/data/datasets/my/polar_depth_V2/water_dispenser_620_around_xyz/"
+  # 偏振8mm 612*512
+#  camera_matrix = np.array([[624.29, 0, 308.60],
+#  [ 0, 624.72, 258.78 ],
+#  [ 0, 0, 1 ] ], dtype=np.float32)
+  Calibration:
+    fx: 624.29
+    fy: 624.72
+    cx: 308.60
+    cy: 258.78
+    k1: -0.1030
+    k2: 0.1179
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    distorted: False
+    width: 612
+    height: 512
+    depth_scale: 1000.0
+# 全关了就是普通单目，有depth.txt必须要有normal.txt
+use_normal_loss:  False  # 使用法线损失
+use_azimuth_loss: False  # 使用方位角损失，精细化的时候用的
+use_dolp_mask: False  # 使用偏振dolp加权
+use_edge_loss: False  # 是否使用边缘损失
+center_focus: False  # 当物体重建时，对中心的loss权重更大

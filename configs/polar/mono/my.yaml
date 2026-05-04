@@ -1,0 +1,28 @@
+# 启动命令：
+# CUDA_VISIBLE_DEVICES=1 python slam.py --config configs/polar/mono/my.yaml
+inherit_from: "configs/polar/mono/base_config.yaml"
+
+Dataset:
+  dataset_path: "/data/datasets/my/polar_depth_V2/sofa_500_around/"
+  # /data/datasets/my/polar/object/trash_can4_low_620/
+  # 偏振8mm 612*512
+  Calibration:
+    fx: 624.29
+    fy: 624.72
+    cx: 308.60
+    cy: 258.78
+    k1: -0.1030
+    k2: 0.1179
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    distorted: False
+    width: 612
+    height: 512
+
+# 全关了就是普通单目，有depth.txt必须要有normal.txt
+use_normal_loss:  True  # 使用法线损失
+use_azimuth_loss: True  # 使用方位角损失，精细化的时候用的
+use_dolp_mask: False  # 使用偏振dolp加权
+use_edge_loss: False  # 是否使用边缘损失
+center_focus: False  # 当物体重建时，对中心的loss权重更大

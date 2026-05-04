@@ -1,0 +1,5 @@
+临时Initial loss: 0.5297908186912537
+Normal size: torch.Size([3, 480, 640]), type: torch.float32
+Normal max: 0.4996887445449829, min: -0.9999887347221375
+depth size: torch.Size([1, 480, 640]), type: torch.float32
+处理后的Normal max: 0.4996887445449829, min: -0.9999887347221375

@@ -1,0 +1,21 @@
+# 启动命令：
+# CUDA_VISIBLE_DEVICES=0 python slam.py --config configs/rgbd/tum/my_polar_h.yaml
+inherit_from: "configs/rgbd/tum/base_config.yaml"
+# 偏振相机8mm镜头内参
+Dataset:
+  dataset_path: "/root/datasets/my/polar/black_leather_chair/"
+  Calibration:
+    fx: 626.695920782884
+    fy: 626.540251699564
+    cx: 309.035963222599
+    cy: 258.308633983800
+    k1: -0.116914453997167
+    k2: 0.152486732866277
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0 # 用于校正更高阶的径向畸变
+    distorted: True
+    width: 612
+    height: 512
+    depth_scale: 2000.0
+use_normal_loss: False  # 是否使用法线损失，需要和base里面的一致

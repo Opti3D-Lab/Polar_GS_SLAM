@@ -1,0 +1,98 @@
+## SLAM parameters
+Results:
+  save_results: True  # 是否保存结果
+  save_dir: "results"  # 保存结果的目录
+  save_trj: True  # 是否保存轨迹
+  save_trj_kf_intv: 5  # 保存关键帧轨迹的间隔
+  use_gui: True  # 是否使用图形用户界面
+  eval_rendering: False  # 是否进行渲染评估
+  use_wandb: False  # 是否使用 Weights & Biases 进行实验跟踪
+
+Dataset:
+  type: 'polar'  # 数据集类型
+  sensor_type: 'depth'  # 传感器类型
+  pcd_downsample: 128  # 点云下采样率
+  pcd_downsample_init: 32  # 初始点云下采样率
+  adaptive_pointsize: True  # 是否自适应点大小
+  point_size: 0.01  # 点的大小
+
+Training:
+  #Initialization
+  init_itr_num: 1050  # 初始化迭代次数
+  init_gaussian_update: 100  # 初始化高斯更新次数
+  init_gaussian_reset: 500  # 初始化高斯重置次数
+  init_gaussian_th: 0.005  # 初始化高斯阈值
+  init_gaussian_extent: 30  # 初始化高斯范围
+  # Tracking and Mapping
+  tracking_itr_num: 200 # 跟踪迭代次数，全局有效，原始100
+  mapping_itr_num: 150 # 建图迭代次数
+  # 上面只在单线程或者初始化时有效，原始150,多线程需要调整下面的参数
+  mapping_itr_num_multi_thread: 20 # 针对关键帧的迭代次数，新增的，原始是10
+
+  gaussian_update_every: 150  # 每隔多少次迭代进行高斯更新
+  gaussian_update_offset: 50  # 高斯更新偏移量，每到150次的第50次进行高斯更新
+  gaussian_th: 0.7  # 高斯阈值
+  gaussian_extent: 1.0  # 高斯范围
+  gaussian_reset: 2001  # 高斯重置次数
+  size_threshold: 20  # 尺寸阈值，可以试试小一点
+  kf_interval: 5  # 关键帧间隔
+  window_size: 8  # 窗口大小
+  pose_window: 3  # 姿态窗口大小
+  edge_threshold: 1.1  # 边缘阈值
+  rgb_boundary_threshold: 0.01  # RGB 边界阈值
+  alpha: 0.9  # 阿尔法值，RGB 和深度的权重，默认0.9
+  kf_translation: 0.08  # 关键帧平移
+  kf_min_translation: 0.05  # 关键帧最小平移
+  kf_overlap: 0.9  # 关键帧重叠
+  kf_cutoff: 0.3  # 关键帧截止
+  prune_mode: 'slam'  # 修剪模式
+  single_thread: False  # 是否使用单线程
+
+  spherical_harmonics: True  # 是否使用球谐函数，或者将下面的阶数设置为 0也可以关闭
+  weight_edge_loss: 0.1  # 边缘损失权重
+  # 上面等价于下面的法线损失权重为0，但多一个不加载法线数据，不过保存渲染图中的gt法线会报错
+  weight_normal_loss: 1.0  # 法线损失权重，需要开启才生效
+  weight_iso_loss: 10  # 等距损失权重，使得高斯更圆，默认10
+  # 当weight_dolp_mask的值为1的时候，dolp为0的区域完全不考虑
+  weight_dolp_mask: 1.0
+
+
+
+  lr:
+#    cam_rot_delta: 0.0015  # 相机旋转学习率0.003
+#    cam_trans_delta: 0.0005  # 相机平移学习率0.001
+    cam_rot_delta: 0.003  # 相机旋转学习率0.003
+    cam_trans_delta: 0.001  # 相机平移学习率0.001
+
+
+
+## 3DGS default parameters
+opt_params:
+  iterations: 30000  # 迭代次数，好像没用
+  position_lr_init: 0.00016  # 初始位置学习率
+  position_lr_final: 0.0000016  # 最终位置学习率
+  position_lr_delay_mult: 0.01  # 位置学习率延迟倍数
+  position_lr_max_steps: 30000  # 位置学习率最大步数
+  feature_lr: 0.0025  # 特征学习率0.0025
+  opacity_lr: 0.05  # 不透明度学习率0.05
+  scaling_lr: 0.001  # 缩放学习率0.001
+  rotation_lr: 0.001  # 旋转学习率0.001
+  percent_dense: 0.01  # 密集百分比0.01
+  lambda_dssim: 0.2  # DSSIM 损失权重
+  densification_interval: 100  # 密集化间隔，好像没用
+  opacity_reset_interval: 3000  # 不透明度重置间隔
+  densify_from_iter: 500  # 从第几次迭代开始密集化
+  densify_until_iter: 15000  # 到第几次迭代结束密集化，好像没用
+  densify_grad_threshold: 0.0002  # 密集化梯度阈值
+
+model_params:
+  sh_degree: 0  # 球谐函数的阶数
+  source_path: ""  # 源路径
+  model_path: ""  # 模型路径
+  resolution: -1  # 分辨率
+  white_background: False  # 是否使用白色背景
+  data_device: "cuda"  # 数据设备
+
+pipeline_params:
+  convert_SHs_python: False  # 是否使用 Python 转换球谐函数
+  compute_cov3D_python: False  # 是否使用 Python 计算 3D 协方差

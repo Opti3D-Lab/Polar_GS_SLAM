@@ -1,0 +1,25 @@
+# CUDA_VISIBLE_DEVICES=0 python slam.py --config configs/polar/mono/fr3_office_mono.yaml
+inherit_from: "configs/polar/mono/base_config.yaml"
+
+Dataset:
+  dataset_path: "/root/datasets/Download/TUM/rgbd_dataset_freiburg3_long_office_household/"
+  Calibration:
+    fx: 535.4
+    fy: 539.2
+    cx: 320.1
+    cy: 247.6
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0
+    k3: 0.0
+    width: 640
+    height: 480
+    distorted: False
+
+# 全关了就是普通单目
+use_normal_loss: False  # 使用法线损失
+use_azimuth_loss: False  # 使用方位角损失，精细化的时候用的
+use_dolp_mask: False  # 使用偏振dolp加权
+use_edge_loss: False  # 是否使用边缘损失
+center_focus: False  # 当物体重建时，对中心的loss权重更大
