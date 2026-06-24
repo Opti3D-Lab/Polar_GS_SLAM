@@ -1,7 +1,7 @@
 # Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction
 
 <p align="center">
-  Haitao Wang · [Sijia Wen](https://wensijia.work/) · Bo Guo
+  Haitao Wang · <a href="https://wensijia.work/">Sijia Wen</a> · Bo Guo
 </p>
 
 <h2 align="center">
