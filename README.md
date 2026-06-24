@@ -1,8 +1,12 @@
 # Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction
 
-Haitao Wang · [Sijia Wen](https://wensijia.work/) · Bo Guo
+<p align="center">
+  Haitao Wang · [Sijia Wen](https://wensijia.work/) · Bo Guo
+</p>
 
-## ACM MM 2025
+<h2 align="center">
+  ACM MM 2025
+</h2>
 
 ### [Paper](https://doi.org/10.1145/3746027.3754925) | Project Page (Coming Soon) | Dataset (Coming Soon)
 
