@@ -1,14 +1,16 @@
-# Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction
+<h1 align="center">Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction</h1>
 
 <p align="center">
   Haitao Wang · <a href="https://wensijia.work/">Sijia Wen</a> · Bo Guo
 </p>
 
-<h2 align="center">
-  ACM MM 2025
-</h2>
+<h2 align="center">ACM MM 2025</h2>
 
-### [Paper](https://doi.org/10.1145/3746027.3754925) | Project Page (Coming Soon) | Dataset (Coming Soon)
+<p align="center">
+  <a href="https://doi.org/10.1145/3746027.3754925">Paper</a> |
+  Project Page |
+  Dataset
+</p>
 
 This repository contains the official implementation of **Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction**, accepted by **ACM MM 2025**.
 
