@@ -7,9 +7,11 @@
 <h2 align="center">ACM MM 2025</h2>
 
 <p align="center">
-  <a href="https://doi.org/10.1145/3746027.3754925">Paper</a> |
-  Project Page |
-  Dataset
+  <strong>
+   <a href="https://doi.org/10.1145/3746027.3754925">Paper</a> |
+   Project Page |
+   Dataset
+  </strong>
 </p>
 
 This repository contains the official implementation of **Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction**, accepted by **ACM MM 2025**.
