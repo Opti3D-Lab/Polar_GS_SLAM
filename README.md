@@ -14,6 +14,10 @@
   </strong>
 </p>
 
+<p align="center">
+  <img src="pipeline.png" width="85%">
+</p>
+
 This repository contains the official implementation of **Polarimetric Monocular Gaussian Splatting SLAM for Dense Surface Reconstruction**, accepted by **ACM MM 2025**.
 
 We propose a polarimetric monocular 3D Gaussian Splatting SLAM framework for dense surface reconstruction. By introducing polarization cues into monocular Gaussian Splatting SLAM, our method improves localization and mapping quality in challenging indoor scenes with weak textures, dark colors, and reflective surfaces.
